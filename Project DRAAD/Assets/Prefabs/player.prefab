@@ -763,8 +763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0148d8a91c2c446a33954da6db6cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
+  sensX: 100
+  sensY: 100
   pointMask:
     serializedVersion: 2
     m_Bits: 256
