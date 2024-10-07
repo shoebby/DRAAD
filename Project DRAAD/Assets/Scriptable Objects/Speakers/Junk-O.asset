@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afb42426d3201e40bc4ed8a7c23fe64, type: 3}
+  m_Name: Junk-O
+  m_EditorClassIdentifier: 
+  speakerName: Junk-O
+  speakerPortrait: {fileID: 21300000, guid: 4b8412ef607ae7447a5699186b4e1087, type: 3}
