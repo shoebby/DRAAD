@@ -212,16 +212,16 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   bakedLightingMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   vertexColorLightingMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   dynamicLightingMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   dynamicLightsMaxCount:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 256
   dynamicLightsMaxPerObjectCount:
     m_OverrideState: 1
@@ -313,7 +313,7 @@ MonoBehaviour:
     m_Value: 1
   bloom:
     m_OverrideState: 0
-    m_Value: 0.0625
+    m_Value: 0
   grateMaskMode:
     m_OverrideState: 1
     m_Value: 5
@@ -349,11 +349,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.75
   barrelDistortionX:
-    m_OverrideState: 0
-    m_Value: 0.125
+    m_OverrideState: 1
+    m_Value: 0
   barrelDistortionY:
-    m_OverrideState: 0
-    m_Value: 0.33333334
+    m_OverrideState: 1
+    m_Value: 0
   vignette:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 1
