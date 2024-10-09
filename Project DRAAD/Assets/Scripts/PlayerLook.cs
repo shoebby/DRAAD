@@ -5,8 +5,6 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] public float sensX;
     [SerializeField] public float sensY;
 
-    [SerializeField] private LayerMask pointMask;
-
     private Camera cam;
 
     private float mouseX;
@@ -22,7 +20,7 @@ public class PlayerLook : MonoBehaviour
 
     private void Awake()
     {
-        pointMask = LayerMask.NameToLayer("Pointable");
+        inDialogue = false;
     }
 
     private void Start()
@@ -40,13 +38,6 @@ public class PlayerLook : MonoBehaviour
 
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity))
-        {
-            if (hit.transform.gameObject.layer == pointMask)
-                Debug.Log("Looking at a pointable");
-        }
     }
 
     private void CamInput()

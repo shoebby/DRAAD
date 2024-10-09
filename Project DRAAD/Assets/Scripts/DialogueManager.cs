@@ -5,12 +5,11 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private PlayerLook playerLook;
     [SerializeField] private PlayerConversant playerConversant;
     [SerializeField] private TextMeshPro speakerNameTextmesh;
     [SerializeField] private TextMeshPro dialogueTextmesh;
     [SerializeField] private GameObject dialogueContainer;
+    [SerializeField] private Animator container_animator;
 
     [Header("Current Dialogue Index")]
     [SerializeField] private int currentDialogueIndex;
@@ -19,19 +18,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Dialogue currentDialogue;
     [SerializeField] private Speaker currentSpeaker;
 
-    void Start()
-    {
-        dialogueContainer.SetActive(false);
-    }
-
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerConversant.conversant != null)
         {
             AdvanceDialogue();
         }
 
-        if (playerConversant.conversant == null)
+        if (playerConversant.conversant == null && currentDialogueIndex != 0)
             CloseDialogue();
     }
 
@@ -47,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         currentSpeaker = currentDialogue.speakers[currentDialogue.speakerIDs[currentDialogueIndex]];
 
         speakerNameTextmesh.text = currentSpeaker.speakerName;
+        speakerNameTextmesh.font = currentSpeaker.speakerFont;
         dialogueTextmesh.color = currentSpeaker.speakerTextColor;
 
         currentDialogueIndex += 1;
@@ -55,22 +50,17 @@ public class DialogueManager : MonoBehaviour
 
     public void CloseDialogue()
     {
-        //playerController.TogglePlayerMovement();
-        //playerLook.ToggleLook();
+        container_animator.Play("dialogue_close");
 
-        dialogueContainer.SetActive(false);
-
-        currentDialogue = null; currentDialogueIndex = 0;
+        currentDialogue = null;
+        currentDialogueIndex = 0;
     }
 
     public void OpenDialogue(Dialogue dialogue)
     {
-        //playerController.TogglePlayerMovement();
-        //playerLook.ToggleLook();
-
         currentDialogue = dialogue; currentDialogueIndex = 0;
 
-        dialogueContainer.SetActive(true);
+        container_animator.Play("dialogue_open");
 
         AdvanceDialogue();
     }

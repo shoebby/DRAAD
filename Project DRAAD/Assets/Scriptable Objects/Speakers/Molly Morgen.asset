@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afb42426d3201e40bc4ed8a7c23fe64, type: 3}
   m_Name: Molly Morgen
   m_EditorClassIdentifier: 
-  speakerName: Junk-O
+  speakerName: Molly Morgen
   speakerTextColor: {r: 1, g: 0.45411825, b: 0, a: 1}
+  speakerFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
