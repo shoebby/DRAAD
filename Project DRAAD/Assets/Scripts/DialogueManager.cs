@@ -7,9 +7,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerLook playerLook;
-    [SerializeField] private TextMeshProUGUI speakerNameTextmesh;
-    [SerializeField] private TextMeshProUGUI dialogueTextmesh;
-    [SerializeField] private Image speakerPortrait;
+    [SerializeField] private PlayerConversant playerConversant;
+    [SerializeField] private TextMeshPro speakerNameTextmesh;
+    [SerializeField] private TextMeshPro dialogueTextmesh;
     [SerializeField] private GameObject dialogueContainer;
 
     [Header("Current Dialogue Index")]
@@ -24,6 +24,17 @@ public class DialogueManager : MonoBehaviour
         dialogueContainer.SetActive(false);
     }
 
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            AdvanceDialogue();
+        }
+
+        if (playerConversant.conversant == null)
+            CloseDialogue();
+    }
+
     public void AdvanceDialogue()
     {
         if (currentDialogueIndex >= currentDialogue.dialogueText.Length)
@@ -36,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         currentSpeaker = currentDialogue.speakers[currentDialogue.speakerIDs[currentDialogueIndex]];
 
         speakerNameTextmesh.text = currentSpeaker.speakerName;
-        speakerPortrait.sprite = currentSpeaker.speakerPortrait;
+        dialogueTextmesh.color = currentSpeaker.speakerTextColor;
 
         currentDialogueIndex += 1;
         
@@ -44,8 +55,8 @@ public class DialogueManager : MonoBehaviour
 
     public void CloseDialogue()
     {
-        playerController.TogglePlayerMovement();
-        playerLook.ToggleLook();
+        //playerController.TogglePlayerMovement();
+        //playerLook.ToggleLook();
 
         dialogueContainer.SetActive(false);
 
@@ -54,8 +65,8 @@ public class DialogueManager : MonoBehaviour
 
     public void OpenDialogue(Dialogue dialogue)
     {
-        playerController.TogglePlayerMovement();
-        playerLook.ToggleLook();
+        //playerController.TogglePlayerMovement();
+        //playerLook.ToggleLook();
 
         currentDialogue = dialogue; currentDialogueIndex = 0;
 

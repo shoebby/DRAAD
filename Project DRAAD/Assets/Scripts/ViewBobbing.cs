@@ -19,11 +19,6 @@ public class ViewBobbing : MonoBehaviour
     [SerializeField] private bool underObject;
     [SerializeField] private bool standAsap;
 
-    [SerializeField] private float stepTimerCurrent;
-    [SerializeField] private float stepTimerMax;
-    [SerializeField] private AudioClip stepClip;
-    [SerializeField] private AudioSource stepSource;
-
     private float standingCollHeight = 4f;
     private Vector3 standingCollCenter = new Vector3(0, 0, 0);
     private float standingPosY = 3f;
@@ -65,23 +60,12 @@ public class ViewBobbing : MonoBehaviour
         {
             timer += Time.deltaTime * idleBobbingSpeed;
             headCamTransform.localPosition = new Vector2(transform.localPosition.x, defaultPosY - Mathf.Sin(timer) * idleBobbingAmount);
-            stepTimerCurrent = 0f;
 
             return;
         }
 
         timer += Time.deltaTime * activeBobbingSpeed;
         headCamTransform.localPosition = new Vector2(transform.localPosition.x, defaultPosY - Mathf.Sin(timer) * activeBobbingAmount);
-
-        if (stepTimerCurrent <= 0f)
-        {
-            stepSource.PlayOneShot(stepClip);
-            stepSource.pitch = Random.Range(.9f,1.1f);
-            stepTimerCurrent = stepTimerMax;
-        }
-        else
-            stepTimerCurrent -= Time.deltaTime;
-
     }
 
     void SetHeight(float collHeight, Vector3 collCenter, float posY)

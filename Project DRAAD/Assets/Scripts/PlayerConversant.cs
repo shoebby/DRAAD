@@ -13,8 +13,10 @@ public class PlayerConversant : MonoBehaviour
     private readonly Collider[] colliders = new Collider[3]; //can be raised if there are more interactibles in a single scene
     [SerializeField] private int numFound;
 
-    private IConversant conversant;
-    private IInteractable interactable;
+    public IConversant conversant;
+    public IInteractable interactable;
+
+    private bool isConversing;
 
     private void Start()
     {
@@ -31,14 +33,18 @@ public class PlayerConversant : MonoBehaviour
 
             if (conversant != null)
             {
-                if (!PromptUI.activeSelf)
-                {
-                    promptText.text = "[E] Speak";
-                    PromptUI.SetActive(true);
-                } 
+                //if (!PromptUI.activeSelf)
+                //{
+                //    promptText.text = "[E] Speak";
+                //    PromptUI.SetActive(true);
+                //} 
 
-                if (Input.GetKeyDown(interactKey))
+                //if (Input.GetKeyDown(interactKey))
+                if (!isConversing)
+                {
+                    isConversing = true;
                     conversant.Converse(this);
+                }
             }
 
             interactable = colliders[0].GetComponent<IInteractable>();
@@ -52,7 +58,7 @@ public class PlayerConversant : MonoBehaviour
                 }
 
                 if (Input.GetKeyDown(interactKey))
-                    interactable.Interact(this);
+                interactable.Interact(this);
             }
         }
         else
@@ -65,6 +71,8 @@ public class PlayerConversant : MonoBehaviour
 
             if (PromptUI.activeSelf)
                 PromptUI.SetActive(false);
+
+            isConversing = false;
         }
     }
 }

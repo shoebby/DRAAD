@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6afb42426d3201e40bc4ed8a7c23fe64, type: 3}
-  m_Name: Alicia
+  m_Name: Unknown
   m_EditorClassIdentifier: 
   speakerName: Alicia
-  speakerPortrait: {fileID: 21300000, guid: 196476f4ac8da6345b5163f02703afd3, type: 3}
+  speakerTextColor: {r: 0.9208026, g: 0, b: 1, a: 1}

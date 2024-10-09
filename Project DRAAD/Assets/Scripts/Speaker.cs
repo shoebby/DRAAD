@@ -4,5 +4,5 @@ using UnityEngine;
 public class Speaker : ScriptableObject
 {
     public string speakerName;
-    public Sprite speakerPortrait;
+    public Color speakerTextColor;
 }
