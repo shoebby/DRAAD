@@ -2307,11 +2307,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7751148295269353769, guid: 36158ffd117edd64f984d5461ce93114,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2336,7 +2331,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2040815210538644614, guid: 36158ffd117edd64f984d5461ce93114,
+    - targetCorrespondingSourceObject: {fileID: 7027702140888193035, guid: 36158ffd117edd64f984d5461ce93114,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5320485996060757730, guid: 36158ffd117edd64f984d5461ce93114,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -4414,47 +4413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3103050d6070d4c9c52ab4de9d28b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyItems:
-  - name: hearing
-    item: {fileID: 11400000, guid: c610be9ac6a2a9341a12cd35c5f29ea3, type: 2}
-  - name: card_gold
-    item: {fileID: 11400000, guid: 9a40aa641c01a104f896e1bfc4673f20, type: 2}
-  - name: card_stack
-    item: {fileID: 11400000, guid: 8bcfa74bc0c5eaf499ab3049951b1762, type: 2}
-  - name: coat
-    item: {fileID: 11400000, guid: 72a6806d8c313524280fa9109e91d469, type: 2}
-  - name: eye
-    item: {fileID: 11400000, guid: eed73f3fcef7d4f46b3401de2c97c1bc, type: 2}
-  - name: gloves_biker
-    item: {fileID: 11400000, guid: 249877bdc3e8d4e4ebb59bddbcfd0d33, type: 2}
-  - name: gloves_garden
-    item: {fileID: 11400000, guid: 97e24d04c52b03346bbd45bcc5d8d5f6, type: 2}
-  - name: greeting_hisix
-    item: {fileID: 11400000, guid: d1fe03f9fb44dd7408c90ec8bafc095e, type: 2}
-  - name: greeting_prototype
-    item: {fileID: 11400000, guid: e25d1b28c53976a49a4e319a86d22084, type: 2}
-  - name: greeting_secret
-    item: {fileID: 11400000, guid: 4a5589d32eb003c47b97b2b2fd1fe376, type: 2}
-  - name: heater
-    item: {fileID: 11400000, guid: 3634999b14e9cb643bfa990a50864709, type: 2}
-  - name: key_flower
-    item: {fileID: 11400000, guid: 7ff61f0107162d34eb031c052e82cfea, type: 2}
-  - name: key_house
-    item: {fileID: 11400000, guid: 5d31ea0ee14f8ab478fa2d4c6a6da380, type: 2}
-  - name: passport
-    item: {fileID: 11400000, guid: 74423d5a7cb2c8d4ca43e90c2945958f, type: 2}
-  - name: photo
-    item: {fileID: 11400000, guid: a4edde6495628184e9f5a20dd0b4e13a, type: 2}
-  - name: proof
-    item: {fileID: 11400000, guid: b0330cd43c7ac0e4b98203d1eb777565, type: 2}
-  - name: scratcher
-    item: {fileID: 11400000, guid: 408fbe82933ab064ebbef6120aefdc9a, type: 2}
-  - name: stabiliser
-    item: {fileID: 11400000, guid: c39935843a3037e4b80aca418f42ed6b, type: 2}
-  - name: treat
-    item: {fileID: 11400000, guid: 5d74671cf8dfef4439b36985725a5dbc, type: 2}
-  - name: wallet
-    item: {fileID: 11400000, guid: c925c6e72d4276a44b9edc94552d1677, type: 2}
+  inventoryBG: {fileID: 1666122962}
+  inventoryContainer: {fileID: 509525422}
+  inventoryLayouter: {fileID: 509525424}
+  itemEntryPrefab: {fileID: 6612004191216574936, guid: ee3a865dcb75e7642b741391aa3e55ee,
+    type: 3}
+  itemEntries: []
 --- !u!1 &274939102
 GameObject:
   m_ObjectHideFlags: 0
@@ -14628,6 +14592,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008587946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &509525422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764065517606372017, guid: 36158ffd117edd64f984d5461ce93114,
+    type: 3}
+  m_PrefabInstance: {fileID: 139828931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &509525424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6068103958040592016, guid: 36158ffd117edd64f984d5461ce93114,
+    type: 3}
+  m_PrefabInstance: {fileID: 139828931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509525422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f400a95ee83e8874baf89ffcb62226cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512428795
 GameObject:
   m_ObjectHideFlags: 0
@@ -17964,7 +17946,6 @@ GameObject:
   m_Component:
   - component: {fileID: 672098712}
   - component: {fileID: 672098711}
-  - component: {fileID: 672098713}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -18049,29 +18030,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 35.065, y: 701.861, z: 1202.873}
---- !u!114 &672098713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672098710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &673489114
 GameObject:
   m_ObjectHideFlags: 0
@@ -59832,7 +59790,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1438191364
 MeshRenderer:
@@ -68134,6 +68092,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008587946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666122962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8674170822388367038, guid: 36158ffd117edd64f984d5461ce93114,
+    type: 3}
+  m_PrefabInstance: {fileID: 139828931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1668330630
 Mesh:
   m_ObjectHideFlags: 0

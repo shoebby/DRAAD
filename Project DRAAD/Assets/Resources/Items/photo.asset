@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b85134cadbdd59a498640f4f42328c53, type: 3}
-  m_Name: key_house
+  m_Name: photo
   m_EditorClassIdentifier: 
-  itemName: House Key
-  itemSprite: {fileID: 0}
-  hasItem: 0
+  itemName: Nostalgic Photograph
+  itemSprite: {fileID: 21300000, guid: e0e686f6b28f06a47bb333c01cdb18fe, type: 3}
+  hasItem: 1

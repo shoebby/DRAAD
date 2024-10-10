@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -31,7 +30,7 @@ public class PlayerConversant : MonoBehaviour
     [SerializeField] private LayerMask intMask;
     [SerializeField] private LayerMask pointMask;
 
-    private bool snapshotIsVisible;
+    private bool snapshotIsVisible = false;
 
     private void Start()
     {
@@ -88,21 +87,20 @@ public class PlayerConversant : MonoBehaviour
         if (!snapshotIsVisible)
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, pointMask))
             {
-                if (hit.transform.gameObject.layer == pointMask)
-                    pointable = hit.transform.GetComponent<IPointable>();
-                else
-                {
-                    if (pointable != null)
-                        pointable = null;
+                pointable = hit.transform.GetComponent<IPointable>();
+            }
+            else
+            {
+                if (pointable != null)
+                    pointable = null;
 
-                    if (lookUI.activeSelf)
-                        lookUI.SetActive(false);
-                }
+                if (lookUI.activeSelf)
+                    lookUI.SetActive(false);
             }
 
-            if (pointable != null)
+        if (pointable != null)
             {
                 if (!lookUI.activeSelf)
                     lookUI.SetActive(true);
