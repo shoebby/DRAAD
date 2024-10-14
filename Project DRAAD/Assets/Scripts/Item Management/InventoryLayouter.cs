@@ -51,7 +51,11 @@ public class InventoryLayouter : MonoBehaviour
                 focusedIndex = 0;
                 focusedChild = children[focusedIndex];
             }
-                
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            InventoryManager.Instance.HoldItem(focusedChild.GetComponent<ItemEntryData>().entry_item);
         }
 
         foreach (Transform child in children)

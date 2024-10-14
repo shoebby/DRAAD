@@ -9,9 +9,13 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private GameObject inventoryContainer;
     [SerializeField] private InventoryLayouter inventoryLayouter;
     [SerializeField] private GameObject itemEntryPrefab;
-    [SerializeField] private GameObject[] itemEntries;
+    [SerializeField] private GameObject holdingHand;
+    [SerializeField] private Animator holdingHand_anim;
+    [SerializeField] private HeldItemData heldItemData;
+    public Item heldItem;
 
     private bool inventoryIsOpen;
+    private bool isHolding;
 
     private object[] itemsAsObjects;
     public SerializableDictionary<string, Item> keyItems = new SerializableDictionary<string, Item>();
@@ -21,7 +25,9 @@ public class InventoryManager : Singleton<InventoryManager>
         base.Awake();
 
         inventoryBG.SetActive(false);
+        holdingHand_anim.Play("holdingHand_closed");
         inventoryIsOpen = false;
+        isHolding = false;
 
         itemsAsObjects = Resources.LoadAll("Items", typeof(Item));
 
@@ -40,12 +46,20 @@ public class InventoryManager : Singleton<InventoryManager>
     }
 
     private void Update()
-    {
+    {   
         if (Input.GetKeyDown(KeyCode.Tab))
             if (!inventoryIsOpen)
+            {
+                if (isHolding)
+                    WithdrawItem();
+
                 OpenInventory();
+            }
             else if (inventoryIsOpen)
                 CloseInventory();
+
+        if (Input.GetMouseButtonDown(1) && isHolding)
+            WithdrawItem();
     }
 
     public void OpenInventory()
@@ -57,8 +71,7 @@ public class InventoryManager : Singleton<InventoryManager>
                 GameObject itemEntry = Instantiate(itemEntryPrefab, inventoryContainer.transform);
 
                 inventoryLayouter.children.Add(itemEntry.transform);
-                itemEntry.GetComponentInChildren<TextMeshPro>().text = pair.Value.itemName;
-                itemEntry.GetComponentInChildren<SpriteRenderer>().sprite = pair.Value.itemSprite;
+                itemEntry.GetComponent<ItemEntryData>().entry_item = pair.Value;
             }
         }
 
@@ -78,6 +91,28 @@ public class InventoryManager : Singleton<InventoryManager>
         inventoryIsOpen = false;
     }
 
+    public void HoldItem(Item item)
+    {
+        heldItem = item;
+        heldItemData.heldItem_item = heldItem;
+        isHolding = true;
+
+        holdingHand_anim.Play("holdingHand_open");
+
+        Debug.Log("Currently holding: " + heldItem.itemName);
+        CloseInventory();
+    }
+
+    public void WithdrawItem()
+    {
+        if (heldItem != null)
+        {
+            holdingHand_anim.Play("holdingHand_close");
+            heldItem = null;
+            isHolding = false;
+        }
+    }
+
     public bool CheckHasItem(string itemID)
     {
         keyItems.TryGetValue(itemID, out Item item);
@@ -88,5 +123,17 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         keyItems.TryGetValue(itemID, out Item item);
         return item;
+    }
+
+    public void AddItem(string itemID)
+    {
+        keyItems.TryGetValue(itemID, out Item item);
+        item.hasItem = true;
+    }
+
+    public void RemoveItem(string itemID)
+    {
+        keyItems.TryGetValue(itemID, out Item item);
+        item.hasItem = false;
     }
 }
