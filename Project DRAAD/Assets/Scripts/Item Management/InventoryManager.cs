@@ -113,6 +113,11 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
 
+    public void UseItem(IConversant conversant)
+    {
+
+    }
+
     public bool CheckHasItem(string itemID)
     {
         keyItems.TryGetValue(itemID, out Item item);

@@ -20,6 +20,14 @@ public class Conversant_Test : MonoBehaviour, IConversant
 
     public bool Converse(PlayerConversant playerConversant)
     {
+        if (InventoryManager.Instance.heldItem != null)
+        {
+            if (InventoryManager.Instance.heldItem.name == "key_house")
+                dialogueManager.OpenDialogue(dialogueManager.dialogues[0]);
+
+            return true;
+        }
+
         dialogueManager.OpenDialogue(thisDialogue);
         return true;
     }

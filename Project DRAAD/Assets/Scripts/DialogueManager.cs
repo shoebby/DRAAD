@@ -18,6 +18,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Dialogue currentDialogue;
     [SerializeField] private Speaker currentSpeaker;
 
+    [Header("Dialogues")]
+    public Dialogue[] dialogues;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && playerConversant.conversant != null)
@@ -51,7 +54,6 @@ public class DialogueManager : MonoBehaviour
     public void CloseDialogue()
     {
         container_animator.Play("dialogue_close");
-
         currentDialogue = null;
         currentDialogueIndex = 0;
     }

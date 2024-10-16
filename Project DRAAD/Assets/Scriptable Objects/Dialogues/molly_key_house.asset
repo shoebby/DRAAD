@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdcf92f6e1a199c4bace39beb04c7776, type: 3}
-  m_Name: TestConversation
+  m_Name: molly_key_house
   m_EditorClassIdentifier: 
-  dialogueID: 
+  dialogueID: 0
   dialogueText:
-  - Oh! You're new!
-  - I'm Molly, Molly Morgen
-  - It's nice to meet you!
-  - Are you moving into Ms. Growl's place?
-  - Oh you're her niece, that explains a lot
-  - I gotta run now though, cya soon sometime!
-  speakerIDs: 010000000000000000000000000000000000000000000000
+  - Hey is that a house key?
+  - Oh it's yours, awesome! I'm glad you found it.
+  - Hope you like your new home!
+  speakerIDs: 000000000000000000000000
   speakers:
   - {fileID: 11400000, guid: 9cafca2b5ac525a49b8e05f8aee473db, type: 2}
-  - {fileID: 11400000, guid: a52c46fac72f26f45810d0aceb203e5e, type: 2}
+  events: []

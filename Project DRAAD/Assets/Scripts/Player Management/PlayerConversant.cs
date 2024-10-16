@@ -79,7 +79,9 @@ public class PlayerConversant : MonoBehaviour
         else
         {
             if (conversant != null)
+            {
                 conversant = null;
+            }
 
             isConversing = false;
         }
